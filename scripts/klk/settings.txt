@@ -1,0 +1,10 @@
+#@group=*-Sedit
+#@crc=true
+#@script=* [SubEdited]
+# Brief info:
+#	? [end flag] Means case check
+#	! [end flag] Means match original case
+#	* [prefix] Means it can have part of a word before it
+#	* [suffix] Means it can have part of a word after it
+
+*"godrobe" -> *"kamui" !

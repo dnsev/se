@@ -1,0 +1,767 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Simple subtitle editing for .ass, .ssa, .srt" />
+	<meta name="keywords" content="dnsev,scriptedit,script edit,script-edit,sedit,s-edit,se,github,subtitle,subtitles,matroska,video,mkv,ass,ssa,srt,python,mkvmerge,mkvextract,mkvtoolnix," />
+	<meta name="author" content="dnsev" />
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" href="style.css" />
+	<title>dnsev / se / SubEdit</title>
+	<script src="jquery.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+
+<div class="TitleContainer">
+	<div class="TitleContainerInner"><a class="Title" href="">se</a><div class="AuthorContainer"><a class="AuthorLink" href="https://github.com/dnsev">dnsev</a></div></div><div class="SubTitleSeparator">/</div><div class="TitleContainerInner"><div class="SubTitleContainer"><div class="SubTitle">SubEdit</div><a class="Version InternalLink" href="#changes"></a></div>
+	<div class="SubTitleDescription"><a class="NavigationLink NavigationLinkCurrent" id="navigation_" href="#">main</a><div class="NavigationLinkSeparator">/</div><a class="NavigationLink" id="navigation_scripts" href="#scripts">scripts</a><div class="NavigationLinkSeparator">/</div><a class="NavigationLink" id="navigation_documentation" href="#documentation">docs</a><div class="NavigationLinkSeparator">/</div><a class="NavigationLink" id="navigation_about" href="#about">about</a><div class="NavigationLinkSeparator">/</div><a class="NavigationLink NavigationLinkDirect" id="navigation_github" href="https://github.com/dnsev/se" target="_blank">github</a></div>
+	</div>
+</div>
+
+<div class="TitleBorder"></div>
+<div class="ContentContainer">
+	<div class="Content ContentWidth ContentActive" id="content_">
+		<div class="MainDescriptionContainer">
+		<div class="MainDescription">
+			<div class="MainDescriptionQuote MainDescriptionQuoteFirst">&#8220;</div><div class="MainDescriptionText">Easily replace words or phrases in subtitle files.</div><div class="MainDescriptionQuote MainDescriptionQuoteLast">&#8221;</div>
+		</div>
+		</div>
+
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Installation</span>:</div>
+		<div class="ContentBody">
+			<ol start="0" class="ContentListSeparated">
+				<li>
+					<p>Prerequisites: <a href="https://www.python.org/downloads/" target="_blank">Python 2.7.x</a><span class="Asterisk">*</span> and a <a href="http://7-zip.org/" target="_blank"><span class="VAligned InlineCodeLink">.7z</span><span class="VAligned"> archive extractor</span></a>
+					</p>
+				</li>
+				<li>
+					<p>
+						<a class="InternalLink" href="#scripts">Select a script package</a> and possibly <a class="InternalLink" href="#documentation">make a script</a> to indicate how subtitles should be modified
+					</p>
+				</li>
+			</ol>
+			<p class="AsteriskMessage">
+				<span class="VAligned">* If you already have Python installed, but it isn't version 2.7.x, you should be able to install 2.7.x somewhere else and copy </span><span class="VAligned InlineCode">python.exe</span><span class="VAligned"> file into </span><span class="VAligned InlineCode">/apps</span>
+			</p>
+			<p class="AsteriskMessage">
+				3.3.x support will potentially come in the future
+			</p>
+		</div>
+
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Use</span>:</div>
+		<div class="ContentBody">
+			<p>
+				<span class="VAligned">Using SubEdit is as simple as creating a </span><span class="VAligned InlineCode">settings.txt</span><span class="VAligned"> file and then dragging your video file(s) onto </span><span class="VAligned InlineCode">SubEdit.bat</span><span class="VAligned">.</span>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="Content ContentWidth" id="content_scripts">
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Scripts</span>:</div>
+		<div class="ContentBody">
+			<p>
+				You can either:
+			</p>
+			<ol>
+				<li>Download a package from below that includes the settings script</li>
+			</ol>
+			<p>
+				or
+			</p>
+			<ol start="2">
+				<li>
+					<p>
+						<a href="scripts/package.7z" target="_blank" download="package.7z">Download the base package</a> and then add a settings script
+					</p>
+					<p>
+						<span class="VAligned">Place it in the same folder as </span><span class="VAligned InlineCode">SubEdit.bat</span>
+					</p>
+				</li>
+			</ol>
+			<p class="AsteriskMessage">
+				Note that the base package is designed for Windows. If you are using something non-Windows, you'll have to get <a href="https://www.bunkus.org/videotools/mkvtoolnix/downloads.html" target="_blank">mkvtoolnix</a> for your system.
+			</p>
+		</div>
+
+		<div data-multi-id="honorific_removal">
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Honorific Removal</span>:</div>
+		<div class="ContentBody">
+			<p>
+				Removes -san, -chan, -kun, and -sama.
+			</p>
+			<p class="AsteriskMessage">
+				Does <b>not</b> remove them when attached to nee, nii, onee, or onii, as this can be too context-sensitive.
+			</p>
+			<p>
+				<a href="scripts/honorifics/package.7z" target="_blank" download="package.7z">Full Package</a> | <a href="scripts/honorifics/settings.txt" target="_blank" download="settings.txt">Script Only</a>
+			</p>
+		</div>
+		</div>
+
+		<div data-multi-id="klk">
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Underwater's Kill la Kill</span>:</div>
+		<div class="ContentBody">
+			<p>
+				Replaces "godrobe" with "kamui".
+			</p>
+			<p>
+				<a href="scripts/klk/package.7z" target="_blank" download="package.7z">Full Package</a> | <a href="scripts/klk/settings.txt" target="_blank" download="settings.txt">Script Only</a>
+			</p>
+		</div>
+		</div>
+	</div>
+
+	<div class="Content ContentWidth" id="content_documentation">
+		<div class="doc-section" id="doc" data-multi-id="doc">
+		<div class="doc-region-header"><span class="doc-region-header-title">Documentation</span>:</div>
+		<div class="doc-region">
+			<ul class="doc-navigation">
+				<li><a class="doc-navigation-link" href="#doc_examples">Examples</a></li>
+				<li><a class="doc-navigation-link" href="#doc_command_line">Command Line</a></li>
+				<li><a class="doc-navigation-link" href="#doc_script_variables">Script Variables</a></li>
+				<li><a class="doc-navigation-link" href="#doc_script_syntax">Script Syntax</a></li>
+				<li><a class="doc-navigation-link" href="#doc_script_comments">Script Comments</a></li>
+				<li><a class="doc-navigation-link" href="#doc_modifier_formats">Modifier Formats</a></li>
+				<li><a class="doc-navigation-link" href="#doc_regular_expressions">Regular Expressions</a></li>
+				<li><a class="doc-navigation-link" href="#doc_regular_expression_flags">Regular Expression Flags</a></li>
+				<li><a class="doc-navigation-link" href="#doc_regex_replacement_format">Regex Replacement Format</a></li>
+			</ul>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_examples" data-multi-id="doc_examples">
+		<div class="doc-region-header"><span class="doc-region-header-title">Examples</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				Most of the syntax can be easily learned from looking at a few examples.
+			</div>
+			<div class="doc-text">
+				Each modifier rule is written on top, with a short description of how it works below it.
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">word -> another word</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace all instances of "word" with "another word".<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a another word in a sentence"<br/>
+				"a compoundword here" -> "a compoundword here"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">* "word" -> "another word"</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace words ending with "word" with "another word".<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a another word in a sentence"<br/>
+				"a compoundword here" -> "a another word here"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">* "word" -> * "another word"</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace words ending with "word" with "another word", keeping prefix.<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a another word in a sentence"<br/>
+				"a compoundword here" -> "a compoundanother word here"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">* "word" * -> * "phrase" * !</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace words ending containing "word" with "phrase", keeping prefix, suffix, and matching case.<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a phrase in a sentence"<br/>
+				"a compoundword here" -> "a compoundphrase here"<br/>
+				"a Word in a sentence" -> "a Phrase in a sentence"<br/>
+				"a compoundWORDcompound here" -> "a compoundPHRASEcompound here"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">'word' -> * 'phrase' * ?</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace instances of "word" with "phrase", matching case.<br />
+				The *'s in the second half mean nothing in this case.<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a phrase in a sentence"<br/>
+				"a Word in a sentence" -> "a Word in a sentence"<br/>
+				"a compoundword here" -> "a compoundword here"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">/(word)|(phrase)/i -> "{1CX:no}{2CX:yes}"</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace "word" with "no", "phrase" with "yes", matching case.<br />
+				<b>Examples</b>:<br />
+				"a word in a sentence" -> "a no in a sentence"<br/>
+				"a WORD in a sentence" -> "a NO in a sentence"<br/>
+				"a phrase" -> "a yes"<br/>
+				"a Phrase" -> "a Yes"
+			</div>
+
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">/(\w+)/i -> "\{a{1C:b\{\"c\"\}d}e\}"</div>
+			</div>
+			<div class="doc-description-formal">
+				Replace all words with '{ab{"c"}de}'.<br />
+				This shows how escapes work by using the backslash.<br />
+				<b>Example</b>:<br />
+				'word Word WORD' -> '{ab{"c"}de} {Ab{"c"}de} {AB{"C"}DE}'
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_command_line" data-multi-id="doc_command_line">
+		<div class="doc-region-header"><span class="doc-region-header-title">Command Line</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				The general form of the command line is:
+			</div>
+			<div class="doc-description-informal">
+				SubEdit.py [options] [input_files]
+			</div>
+			<div class="doc-text">
+				<span class="doc-text-inline-code">input_files</span> is a list of files which are to be used as input.
+			</div>
+			<div class="doc-text">
+				Valid file extensions for subtitles are: <span class="doc-text-inline-code">.mkv</span>, <span class="doc-text-inline-code">.ssa</span>, <span class="doc-text-inline-code">.ass</span>, <span class="doc-text-inline-code">.srt</span><br />
+				Valid file extension for settings is: <span class="doc-text-inline-code">.txt</span><br />
+				Any other extension will throw an error.
+			</div>
+			<div class="doc-text">
+				Options can be divided up into 2 categories: <b>general options</b> and <b>declaration options</b>.
+			</div>
+			<div class="doc-text">
+				<b>General options</b> begin with a single hypen (<span class="doc-text-inline-code">"-"</span>), followed by the option name. The following general options are available:
+			</div>
+			<div class="doc-text">
+				<div class="doc-flag-table doc-flag-table-small">
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">-s file</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Set the file to be used as the settings file.<br />
+						<i>Aliases</i>: <span class="doc-text-inline-code">-settings file</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">-se file</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Set the file to be used as the settings file <b>if the file exists</b>. Otherwise, this option is ignored.<br />
+						<i>Aliases</i>: <span class="doc-text-inline-code">-settings_if_exists file</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">-i file</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Specify an input file to modify.<br />
+						Unlike the <span class="doc-text-inline-code">[input_files]</span> part of the command line, this option accepts any file extension without question.<br />
+						<i>Aliases</i>: <span class="doc-text-inline-code">-input file</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">-ie file</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Specify an input file to modify <b>so long as the file exists</b>.<br />
+						Unlike the <span class="doc-text-inline-code">[input_files]</span> part of the command line, this option accepts any file extension without question.<br />
+						<i>Aliases</i>: <span class="doc-text-inline-code">-input_if_exists file</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">-v</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Display the version info of SubEdit and terminate.<br />
+						Version info is formatted like: <span class="doc-text-inline-code">Version X.Y.Z</span><br />
+						<i>Aliases</i>: <span class="doc-text-inline-code">-version</span></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="doc-text">
+				<b>Declarative options</b> begin with two hypens (<span class="doc-text-inline-code">"--"</span>), followed by the script variable name. See <a class="doc-navigation-link doc-navigation-link-internal" href="#doc_script_variables">Script Variables</a> for more information.
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_script_variables" data-multi-id="doc_script_variables">
+		<div class="doc-region-header"><span class="doc-region-header-title">Script Variables</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				Script control variables can be set using <a class="doc-navigation-link doc-navigation-link-internal" href="#doc_script_comments">declarative comments</a> as described below.
+			</div>
+			<div class="doc-text">
+				The available variables are:
+			</div>
+			<div class="doc-text">
+				<div class="doc-flag-table doc-flag-table-small">
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">group</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Modifiy the release group name according to this string.<br />
+						<span class="doc-text-inline-code">*</span> are replaced with the original group name.<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"*-Sedit"</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">script</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">A modified name of the subtitles track.<br />
+						<span class="doc-text-inline-code">*</span> are replaced with the original subtitle track name.<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"* [SubEdited]"</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">crc</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Update the CRC field of the filename for the resulting file.<br />
+						<span class="doc-text-inline-code">"true"</span> - Updates the CRC<br />
+						<span class="doc-text-inline-code">"false"</span> - Does not update the CRC<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"true"</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">internal</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">When modifying .mkv files, this option tells whether or not the new subtitles should be re-mux'd into a new .mkv file.<br />
+						<span class="doc-text-inline-code">"true"</span> - Create a new .mkv file with new subtitles<br />
+						<span class="doc-text-inline-code">"false"</span> - Leave new subtitles as an external file<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"true"</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">keep_original</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">When modifying .mkv files, this option tells whether or not the original subtitles should be kept (but not as the main subtitle track.)<br />
+						<span class="doc-text-inline-code">"true"</span> - Keep original subtitles<br />
+						<span class="doc-text-inline-code">"false"</span> - Remove original subtitles<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"true"</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">debug</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Outputs the results of subprocess calls when enabled.<br />
+						<span class="doc-text-inline-code">"true"</span> - Debug enabled<br />
+						<span class="doc-text-inline-code">"false"</span> - Debug disabled<br />
+						<i>Default</i>: <span class="doc-text-inline-code">"false"</span></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_script_syntax" data-multi-id="doc_script_syntax">
+		<div class="doc-region-header"><span class="doc-region-header-title">Script Syntax</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				The basic format of settings files is as follows:
+			</div>
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">Each line is composed of an optional modifier declaration, optionally followed by a comment.</div>
+			</div>
+			<div class="doc-description-formal">
+				<span class="doc-lang-formation">line</span> ::= [<span class="doc-lang-formation-ref">modifier</span>] [<span class="doc-lang-formation-ref">comment</span>]
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_script_comments" data-multi-id="doc_script_comments">
+		<div class="doc-region-header"><span class="doc-region-header-title">Script Comments</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				Comments have two styles: descriptive and declarative.
+				Declarative comments are formatted as follows:
+			</div>
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">#@variable=value</div>
+			</div>
+			<div class="doc-description-formal">
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">comment_decl</span>       ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"#@"</span> <span class="doc-lang-formation-ref">comment_decl_var</span> <span class="doc-lang-string">"="</span> <span class="doc-lang-formation-ref">comment_decl_value</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">comment_decl_var</span>   ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">string</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">comment_decl_value</span> ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">string</span></div>
+				</div>
+			</div>
+
+			<div class="doc-text">
+				Whereas descriptive comments are everything else beginning with a #:
+			</div>
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line"># some comment about the script</div>
+			</div>
+			<div class="doc-description-formal">
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">comment_desc</span>       ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"#@"</span> <span class="doc-lang-generic-ref">string</span></div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_modifier_formats" data-multi-id="doc_modifier_formats">
+		<div class="doc-region-header"><span class="doc-region-header-title">Modifier Formats</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				Modifier patterns have 2 general formats: normal, and regular expressions.
+			</div>
+
+			<div class="doc-text">
+				The type is determined by the first non-whitespace character. If it is a "/", it is a regex modifier, otherwise it's a normal modifier.
+			</div>
+
+			<div class="doc-text">
+				Normal modifier patterns can look like:
+			</div>
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">word1 -> replacement1</div>
+				<div class="doc-description-informal-line">*"word2" -> *"replacement2"</div>
+				<div class="doc-description-informal-line">*'word3'* -> *'replacement3'* !</div>
+				<div class="doc-description-informal-line">*'word4'* -> "replacement4" !?</div>
+				<div class="doc-description-informal-line">'word4'* -> "replacement4"* ?</div>
+				<div class="doc-description-informal-line">"word5"* -> "replace with \"quotes\"" ?</div>
+				<div class="doc-description-informal-line">'word5' -> 'replace with \\ single backslash' ?!</div>
+			</div>
+			<div class="doc-description-formal">
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">modifier</span>     ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-ref">mod_search</span> <span class="doc-lang-string">"->"</span> <span class="doc-lang-formation-ref">mod_replace</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_search</span>   ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-ref">mod_part</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_replace</span>  ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-ref">mod_part</span> <span class="doc-lang-formation-ref">mod_flags</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_part</span>     ::= </div><div class="doc-lang-formation-suffix">[<span class="doc-lang-string">"*"</span>] (<span class="doc-lang-formation-ref">mod_part_q</span> | <span class="doc-lang-formation-ref">mod_part_unq</span>) [<span class="doc-lang-string">"*"</span>]</div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_part_q</span>   ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"\""</span> <span class="doc-lang-generic-ref">escaped_string</span> <span class="doc-lang-string">"\""</span> | <span class="doc-lang-string">"'"</span> <span class="doc-lang-generic-ref">escaped_string</span> <span class="doc-lang-string">"'"</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_part_unq</span> ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">string</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">mod_flags</span>    ::= </div><div class="doc-lang-formation-suffix">(<span class="doc-lang-string">"?"</span> | <span class="doc-lang-string">"!"</span>)*</div>
+				</div>
+			</div>
+
+			<div class="doc-text">
+				Regular expression patterns can look like:
+			</div>
+			<div class="doc-description-informal">
+				<div class="doc-description-informal-line">/word1/ -> replacement1</div>
+				<div class="doc-description-informal-line">/word2/i -> "replacement2"</div>
+				<div class="doc-description-informal-line">/re(g)ex/i -> "replacement3 {1}"</div>
+				<div class="doc-description-informal-line">/re(g)ex/i -> "replacement4 {1:words}"</div>
+				<div class="doc-description-informal-line">/re(g)ex/i -> "replacement5 {1C:modified}"</div>
+				<div class="doc-description-informal-line">/re(g)ex/i -> "\{escapes\} {1C:more\{escapes\}}"</div>
+			</div>
+			<div class="doc-description-formal">
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">re_modifier</span>    ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-ref">re_mod_search</span> <span class="doc-lang-string">"->"</span> <span class="doc-lang-formation-ref">re_mod_replace</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">re_mod_search</span>  ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"/"</span> <span class="doc-lang-formation-ref">regex</span> <span class="doc-lang-string">"/"</span> <span class="doc-lang-formation-ref">regex_flags</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">re_mod_replace</span> ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"\""</span> <span class="doc-lang-formation-ref">regex_fmt</span> <span class="doc-lang-string">"\""</span> | <span class="doc-lang-string">"'"</span> <span class="doc-lang-formation-ref">regex_fmt</span> <span class="doc-lang-string">"'"</span> | <span class="doc-lang-formation-ref">regex_unfmt</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">regex</span>          ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-comment">// Basic regex format; similar to Javascript regex literals</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">regex_flags</span>    ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-formation-ref">regex_flag</span>*</div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">regex_flag</span>     ::= </div><div class="doc-lang-formation-suffix">(<span class="doc-lang-string">"I"</span> | <span class="doc-lang-string">"L"</span> | <span class="doc-lang-string">"M"</span> | <span class="doc-lang-string">"S"</span> | <span class="doc-lang-string">"X"</span>)</div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">regex_fmt</span>      ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">escaped_string</span></div>
+				</div>
+				<div class="doc-lang-formation">
+					<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">regex_unfmt</span>    ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">string</span></div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_regular_expressions" data-multi-id="doc_regular_expressions">
+		<div class="doc-region-header"><span class="doc-region-header-title">Regular Expressions</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				The regex syntax is the same as <a href="http://docs.python.org/2/library/re.html" target="_blank">Python's regex syntax</a>.
+			</div>
+			<div class="doc-text">
+				Regex patterns are formatted very similar to how <a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" target="_blank">Javascript regex literals</a> look, and Python regex and Javascript regex are pretty similar anyways. The only difference is the flags at the end of the expression.
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_regular_expression_flags" data-multi-id="doc_regular_expression_flags">
+		<div class="doc-region-header"><span class="doc-region-header-title">Regular Expression Flags</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				The following are <span class="doc-text-inline-code">regex_flags</span>. <span class="doc-text-inline-code">I</span> is the most useful one, the others are included just in case they are needed.
+			</div>
+			<div class="doc-text">
+				The flags are also case insensitive.
+			</div>
+			<div class="doc-text">
+				<div class="doc-flag-table">
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><a class="doc-flag-name" href="http://docs.python.org/2/library/re.html#re.I" target="_blank">I</a></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-info">Ignore case</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Text case will be ignored when matching</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><a class="doc-flag-name" href="http://docs.python.org/2/library/re.html#re.L" target="_blank">L</a></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-info">Locale</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Makes certain matchers depend on locale</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><a class="doc-flag-name" href="http://docs.python.org/2/library/re.html#re.M" target="_blank">M</a></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-info">Multi-line</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description"><span class="doc-text-inline-code">^</span> matches line start, <span class="doc-text-inline-code">$</span> matches line end</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><a class="doc-flag-name" href="http://docs.python.org/2/library/re.html#re.S" target="_blank">S</a></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-info">Dot all</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description"><span class="doc-text-inline-code">.</span> can match newlines</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><a class="doc-flag-name" href="http://docs.python.org/2/library/re.html#re.X" target="_blank">X</a></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-info">Verbose</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Allows expressions to be written differently</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_regex_replacement_format" data-multi-id="doc_regex_replacement_format">
+		<div class="doc-region-header"><span class="doc-region-header-title">Regex Replacement Format</span>:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				The regex format is used to replace regex matches with a new text, including being able to use matched groups in the replacement.
+			</div>
+			<div class="doc-text">
+				The general format is:
+			</div>
+			<div class="doc-text">
+				<div class="doc-text-inline-code">"some text {group_mod} some text ..."</div>
+			</div>
+			<div class="doc-text">
+				Anything following a backslash (<span class="doc-text-inline-code">\</span>) is escaped, both inside and outside of groups.
+			</div>
+			<div class="doc-text">
+				<div class="doc-description-informal">
+					<div class="doc-description-informal-line">{1}</div>
+					<div class="doc-description-informal-line">{1:text}</div>
+					<div class="doc-description-informal-line">{1C:text}</div>
+					<div class="doc-description-informal-line">{1X:text}</div>
+				</div>
+				<div class="doc-description-formal">
+					<div class="doc-lang-formation">
+						<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">group_mod</span>   ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-string">"{"</span> <span class="doc-lang-formation-ref">group_id</span> [<span class="doc-lang-formation-ref">group_flags</span>] [<span class="doc-lang-string">":"</span> <span class="doc-lang-formation-ref">group_text</span>] <span class="doc-lang-string">"}"</span></div>
+					</div>
+					<div class="doc-lang-formation">
+						<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">group_id</span>    ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">number</span></div>
+					</div>
+					<div class="doc-lang-formation">
+						<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">group_flags</span> ::= </div><div class="doc-lang-formation-suffix">(<span class="doc-lang-string">"C"</span> | <span class="doc-lang-string">"I"</span> | <span class="doc-lang-string">"L"</span> | <span class="doc-lang-string">"P"</span> | <span class="doc-lang-string">"U"</span> | <span class="doc-lang-string">"X"</span> | <span class="doc-lang-string">"x"</span>)</div>
+					</div>
+					<div class="doc-lang-formation">
+						<div class="doc-lang-formation-prefix"><span class="doc-lang-formation-ref-label">group_text</span>  ::= </div><div class="doc-lang-formation-suffix"><span class="doc-lang-generic-ref">string</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="doc-text">
+				If an unquoted <span class="doc-text-inline-code">regex_unfmt</span> is used, direct replacement will be used without parsing for groups.
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_regex_replacement" data-multi-id="doc_regex_replacement">
+		<div class="doc-region-header"><span class="doc-region-header-title">Regex Replacement</span>, [:group_text] omitted:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				When <span class="doc-text-inline-code">group_text</span> is omitted, the match group with <span class="doc-text-inline-code">group_id</span> is used as the replacement.
+			</div>
+			<div class="doc-text">
+				<span class="doc-text-inline-code">group_id</span>=0 is the entire match, 1 is the first group, 2 is the second, etc.
+			</div>
+			<div class="doc-text">
+				<span class="doc-text-inline-code">group_flags</span> meanings:
+			</div>
+			<div class="doc-text">
+				<div class="doc-flag-table">
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">C</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Capitalized version of the match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">I</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Invert the case of the match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">L</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Lower-case version of the match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">P</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Proper-Case version of the match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">U</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Upper-case version of the match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">X</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Meaningless</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">x</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Meaningless</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="doc-section" id="doc_regex_replacement2" data-multi-id="doc_regex_replacement2">
+		<div class="doc-region-header"><span class="doc-region-header-title">Regex Replacement</span>, [:group_text] included:</div>
+		<div class="doc-region">
+			<div class="doc-text">
+				When <span class="doc-text-inline-code">group_text</span> is <b>not</b> omitted, the <span class="doc-text-inline-code">group_text</span> is used as the replacement text instead of match group. It is modified according to <span class="doc-text-inline-code">group_flags</span>.
+			</div>
+			<div class="doc-text">
+				<span class="doc-text-inline-code">group_flags</span> meanings:
+			</div>
+			<div class="doc-text">
+				<div class="doc-flag-table">
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">C</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description"><span class="doc-text-inline-code">group_text</span> capitalization mimics match group</span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">I</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Invert the case of the <span class="doc-text-inline-code">group_text</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">L</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Lower-case version of <span class="doc-text-inline-code">group_text</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">P</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Proper-Case version of <span class="doc-text-inline-code">group_text</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">U</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Upper-case version of <span class="doc-text-inline-code">group_text</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">X</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Omit replacement if match group is <span class="doc-text-inline-code">null</span></span></div>
+					</div>
+					<div class="doc-flag">
+						<div class="doc-flag-cell"><span class="doc-flag-name">x</span></div>
+						<div class="doc-flag-cell doc-flag-cell-separator"> - </div>
+						<div class="doc-flag-cell"><span class="doc-flag-description">Omit replacement if match group is <b>not</b> <span class="doc-text-inline-code">null</span></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</div>
+
+	<div class="Content ContentWidth" id="content_changes">
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Change log</span>:</div>
+		<div class="ContentBody">
+			<div class="changelog"><span class="changelog_status"></span></div>
+		</div>
+	</div>
+
+	<div class="Content ContentWidth" id="content_about">
+		<div class="ContentHeader"><span class="ContentHeaderTitle">About</span>:</div>
+		<div class="ContentBody">
+			<p>
+				<span>SubEdit can be used to modify internal or external subtitle files to change words or phrases for whatever reason.</span>
+			</p>
+			<p>
+				It uses <a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html" target="_blank">mkvmerge</a>, and <a href="https://www.bunkus.org/videotools/mkvtoolnix/doc/mkvextract.html" target="_blank">mkvextract</a> to run.
+			</p>
+		</div>
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Actions</span>:</div>
+		<div class="ContentBody">
+			<p>
+				<span class="VAligned">SubEdit can modify subtitle files inside Matroska </span><span class="VAligned InlineCode">.mkv</span><span class="VAligned"> files.</span>
+			</p>
+			<p>
+				The following types of subtitles are editable:
+				<ul>
+					<li><span class="VAligned InlineCode">.ssa</span><span class="VAligned"> - SubStation Alpha</span></li>
+					<li><span class="VAligned InlineCode">.ass</span><span class="VAligned"> - Advanced SubStation Alpha</span></li>
+					<li><span class="VAligned InlineCode">.srt</span><span class="VAligned"> - SubRip text file</span></li>
+				</ul>
+			</p>
+			<p>
+				<span class="VAligned InlineCode">.ssa</span><span class="VAligned"> and </span><span class="VAligned InlineCode">.ass</span><span class="VAligned"> subtitles are partially parsed, in that word replacement <i>should</i> only be performed on the actual script portion, and not meta-data.</span>
+			</p>
+			<p>
+				<span class="VAligned InlineCode">.srt</span><span class="VAligned"> subtitles are not parsed and replacement is simply run on every line.</span>
+			</p>
+		</div>
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Motivation</span>:</div>
+		<div class="ContentBody">
+			<p>
+				<span class="VAligned">Some people get unreasonably upset when they see that some fansub releases contain honorifics or other translations that they don't quite agree with.</span>
+			</p>
+			<p>
+				<span class="VAligned">SubEdit allows for simple modification of subtitles with (hopefully) no hassle.</span>
+			</p>
+		</div>
+		<div class="ContentHeader"><span class="ContentHeaderTitle">Testing</span>:</div>
+		<div class="ContentBody">
+			<p>
+				SubEdit is confirmed to work on:
+			</p>
+			<p class="AsteriskMessage">
+				Windows 7 x86 + Python 2.7.3 + mkvextract 6.8.0 + mkvmerge 6.8.0
+			</p>
+		</div>
+	</div>
+
+</div>
+
+<div class="ImagePreviewOverlay">
+<div class="ImagePreviewOverlayInner">
+</div>
+</div>
+
+
+</body>
+</html>

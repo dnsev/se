@@ -1,0 +1,13 @@
+#@group=*-Sedit
+#@crc=true
+#@script=* [SubEdited]
+# Brief info:
+#	? [end flag] Means case check
+#	! [end flag] Means match original case
+#	* [prefix] Means it can have part of a word before it
+#	* [suffix] Means it can have part of a word after it
+
+/((onee|nee|onii|nii)-san)|((\S)-san(\W|$))/i -> "{1}{4}{5}"
+/((onee|nee|onii|nii)-kun)|((\S)-kun(\W|$))/i -> "{1}{4}{5}"
+/((onee|nee|onii|nii)-chan)|((\S)-chan(\W|$))/i -> "{1}{4}{5}"
+/((onee|nee|onii|nii)-sama)|((\S)-sama(\W|$))/i -> "{1}{4}{5}"
