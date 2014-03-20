@@ -14,18 +14,7 @@ goto :version_test_native
 
 
 :python_missing
-:: Python is missing; try checking apps
-set PYTHON_EXE="%BASE_DIR%apps\python\python.exe"
-if not exist %PYTHON_EXE% (
-	set PYTHON_EXE="%BASE_DIR%apps\python.exe"
-	if not exist %PYTHON_EXE% (
-		set PYTHON_EXE="%BASE_DIR%python.exe"
-	)
-)
-%PYTHON_EXE% --version > nul 2> nul || goto :python_not_found
-
-:: If it does, go to the version test
-goto :version_test_custom
+goto :python_not_found
 
 
 
@@ -52,10 +41,15 @@ goto :start
 echo Python does not appear to be installed on your system,
 echo     you have the wrong version, or you installed it improperly.
 echo.
-echo Download and install Python 2.7.x and make a copy of python.exe
-echo     inside of the "apps" folder
+echo Download and install Python 2.7.x and add the directory to your
+echo     "path" environment variable.
 echo.
-echo The final path to python should be "apps\python.exe"
+echo For info on how to setup Python (with or without using the "path",) visit:
+echo     http://dnsev.github.io/se/#about/python
+echo.
+
+:: Attempt to open install information
+start "" "http://dnsev.github.io/se/#about/python" > nul 2> nul
 
 :: Wait
 pause
@@ -76,6 +70,6 @@ pause
 goto :eof
 
 
-:: Complete 
+:: Complete
 :complete
 
