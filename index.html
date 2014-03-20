@@ -42,10 +42,7 @@
 				</li>
 			</ol>
 			<p class="AsteriskMessage">
-				<span class="VAligned">* If you already have Python installed, but it isn't version 2.7.x, you should be able to install 2.7.x somewhere else and copy </span><span class="VAligned InlineCode">python.exe</span><span class="VAligned"> file into </span><span class="VAligned InlineCode">/apps</span>
-			</p>
-			<p class="AsteriskMessage">
-				3.3.x support will potentially come in the future
+				<span class="VAligned">* To get Python working, read <a class="InternalLink" href="#about/python">this guide</a>. Python 3.x support will potentially come in the future</span>
 			</p>
 		</div>
 
@@ -714,6 +711,9 @@
 			<p>
 				It uses <a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.bunkus.org/videotools/mkvtoolnix/doc/mkvmerge.html" target="_blank">mkvmerge</a>, and <a href="https://www.bunkus.org/videotools/mkvtoolnix/doc/mkvextract.html" target="_blank">mkvextract</a> to run.
 			</p>
+			<p>
+				For information on getting Python to run properly, <a class="InternalLink" href="#about/python">click here</a>.
+			</p>
 		</div>
 		<div class="ContentHeader"><span class="ContentHeaderTitle">Actions</span>:</div>
 		<div class="ContentBody">
@@ -752,6 +752,69 @@
 			<p class="AsteriskMessage">
 				Windows 7 x86 + Python 2.7.3 + mkvextract 6.8.0 + mkvmerge 6.8.0
 			</p>
+		</div>
+	</div>
+
+	<div class="Content ContentWidth" id="content_about_python">
+		<div class="ContentHeader"><a href="#about" class="InternalLink ContentHeaderTitle">About</a> / <span class="ContentHeaderTitle">Python</span>:</div>
+		<div class="ContentBody">
+			<p>
+				After downloading an appropriate version of Python, you have two choices of how to get SubEdit to work:
+			</p>
+			<ol>
+				<li>
+					<div class="doc-text">
+						<span class="VAligned">Edit </span><span class="VAligned InlineCode">SubEdit.bat</span><span class="VAligned"> directly by replacing the following line:</span>
+					</div>
+					<div class="doc-description-informal">
+						set PYTHON_EXE=python
+					</div>
+					<div class="doc-text">
+						with something along the lines of:
+					</div>
+					<div class="doc-description-informal doc-description-informal-small">
+						set PYTHON_EXE=C:\path\to\where\you\installed\python.exe
+					</div>
+				</li>
+			</ol>
+			<p>
+				or
+			</p>
+			<ol start="2">
+				<li>
+					<span class="VAligned">Edit your </span><span class="VAligned InlineCode">path</span><span class="VAligned"> environment variable by doing the following:</span>
+				</li>
+			</ol>
+			<ul class="SpacedList">
+				<li>
+					<p>Open the Start Menu and right click on "My Computer", then go to "Properties"</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part1.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>On the left, go to "Advanced system settings"</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part2.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>Under the "Advanced" tab, click the "Environment Variables..." button</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part3.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>In the second panel "System variables", find the "Path" entry and click "Edit..."</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part4.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>Add a semicolon to the end of the field, followed by the path to where you installed Python</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part5.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>The path should be the folder that looks like this:</p>
+					<div class="about-python-image-container"><img class="about-python-image" data-src="part6.png" alt="" title="" /></div>
+				</li>
+				<li>
+					<p>After that, click "OK" on the path editing window and close all the windows you opened.</p>
+					<p>Python should be automatically detected next time you run SubEdit.</p>
+				</li>
+			</ul>
 		</div>
 	</div>
 

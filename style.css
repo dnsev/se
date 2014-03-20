@@ -477,7 +477,13 @@ a.InstallLink:active {
 .InstructionsImageLinkClear {
 	clear: both;
 }
+.SpacedList > li {
+	list-style-type: disc;
+}
 .SpacedList > li + li{
+	margin-top: 0.6em;
+}
+ol+.SpacedList {
 	margin-top: 0.6em;
 }
 
@@ -770,6 +776,9 @@ a.InstallLink:active {
 	padding: 4px;
 	border: 1px solid #2b8515;
 }
+.doc-description-informal.doc-description-informal-small {
+	font-size: 14px;
+}
 .doc-description-informal-line {
 	white-space: pre-wrap;
 }
@@ -853,4 +862,12 @@ a.InstallLink:active {
 .doc-navigation {
 }
 .doc-navigation-link {
+}
+
+.about-python-image-container {
+	display: block;
+	text-align: center;
+}
+.about-python-image-container>img {
+	display: inline-block;
 }

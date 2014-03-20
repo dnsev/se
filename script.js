@@ -4,18 +4,17 @@ var page_list = {
 	//"": null,
 	"scripts": null,
 	"documentation": null,
-	"about": null,
+	"about": {
+		"python": null
+	},
 	"changes": null,
 };
 var page_list_first_open_callback = {
-	"use": function () {
-		$(".UseImagePreviewSmall").each(function () {
-			$(this).css("background-image", "url(" + ($(this).attr("data-preview-href")) + ")");
-		});
-	},
-	"api": {
-		"test": function () {
-			launch_api();
+	"about": {
+		"python": function () {
+			$(".about-python-image").each(function () {
+				$(this).attr("src", $(this).attr("data-src"));
+			});
 		}
 	},
 };
