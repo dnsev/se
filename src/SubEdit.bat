@@ -45,11 +45,11 @@ echo Download and install Python 2.7.x and add the directory to your
 echo     "path" environment variable.
 echo.
 echo For info on how to setup Python (with or without using the "path",) visit:
-echo     http://dnsev.github.io/se/#about/python
+echo     https://dnsev.github.io/se/#about/python
 echo.
 
 :: Attempt to open install information
-start "" "http://dnsev.github.io/se/#about/python" > nul 2> nul
+start "" "https://dnsev.github.io/se/#about/python" > nul 2> nul
 
 :: Wait
 pause

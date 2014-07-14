@@ -1,7 +1,11 @@
 #! /usr/bin/env python
 # http://dnsev.github.io/se/
 import os, re, sys, shutil, binascii, subprocess;
-sub_edit_version = [ 1 , 1 ];
+<<<<<<< HEAD
+sub_edit_version = [ 1 , 2 ];
+=======
+sub_edit_version = [ 1 , 0 ];
+>>>>>>> parent of 23f5237... 1.1
 
 
 
@@ -201,7 +205,10 @@ def replace_subtitles(exe, filename, target, subtitle_files, debug):
 				prefix = str(stf["tracks"][j]["id"]);
 				track_ids.append(prefix);
 				prefix += ":";
-				cmd_extra += [ "--default-track" , prefix + default_str ];
+				cmd_extra += [
+					"--default-track" , prefix + default_str,
+					"--forced-track" , prefix + default_str
+				];
 				default_str = "false";
 
 			if (stf["tracks"][j]["title"] is not None):
@@ -360,7 +367,7 @@ def parse_settings_line(source):
 	};
 
 	# Get key
-	part1 = parse_settings_value(source, 0, True, True, False, False, True, "");
+	part1 = parse_settings_value(source, 0, True, True, False, True, "");
 
 	# Okay?
 	if (part1["key"] is None):
@@ -386,7 +393,7 @@ def parse_settings_line(source):
 		is_regex = (part1["regex"] is not None);
 		eol_characters = "";
 		if (not is_regex): eol_characters = "!?";
-		part2 = parse_settings_value(source, part1["pos"], False, not is_regex, is_regex, True, False, eol_characters);
+		part2 = parse_settings_value(source, part1["pos"], False, not is_regex, is_regex, False, eol_characters);
 
 		# Okay?
 		if (part2["key"] is None):
@@ -419,7 +426,7 @@ def parse_settings_line(source):
 	# Done
 	return ret;
 
-def parse_settings_value(source, i, regex_allowed, asterisk_allowed, parsable_str, allow_empty_key, find_arrow, eol_characters):
+def parse_settings_value(source, i, regex_allowed, asterisk_allowed, parsable_str, find_arrow, eol_characters):
 	asterisk = [ False , False ];
 
 	i_max = len(source);
@@ -676,7 +683,7 @@ def parse_settings_value(source, i, regex_allowed, asterisk_allowed, parsable_st
 
 
 	# Key error
-	if (len(key) == 0 and not allow_empty_key):
+	if (len(key) == 0):
 		ret["pos"] = i;
 		ret["reason"] = "error";
 		ret["error"] = "Invalid value";
@@ -1686,7 +1693,7 @@ def main2(filename, main_file_is_mkv, modifiers, settings_vars, exe_data, debug,
 			f_info = get_info(exe_data["mkvmerge"]["filename"], filename, debug);
 			if (f_info is None):
 				if (update_exe_data(exe_data["mkvmerge"])): continue;
-				sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, os.path.split(exe_data["mkvmerge"]["filename"])[1]));
+				sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, mkvmerge_exe));
 				return -1;
 			break;
 
@@ -1745,7 +1752,7 @@ def main2(filename, main_file_is_mkv, modifiers, settings_vars, exe_data, debug,
 			okay = extract_tracks(exe_data["mkvextract"]["filename"], filename, subtitle_extract_list, debug);
 			if (not okay):
 				if (update_exe_data(exe_data["mkvextract"])): continue;
-				sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, os.path.split(exe_data["mkvextract"]["filename"])[1]));
+				sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, mkvextract_exe));
 				return -1;
 			break;
 
@@ -1822,7 +1829,7 @@ def main2(filename, main_file_is_mkv, modifiers, settings_vars, exe_data, debug,
 				okay = replace_subtitles(exe_data["mkvmerge"]["filename"], filename, temp_filename, new_subtitles_tracks, debug);
 				if (not okay):
 					if (update_exe_data(exe_data["mkvmerge"])): continue;
-					sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, os.path.split(exe_data["mkvmerge"]["filename"])[1]));
+					sys.stderr.write("{0:s}An error occured while trying to execute {1:s}\n".format(stderr_prefix, mkvmerge_exe));
 					return -1;
 				break;
 
