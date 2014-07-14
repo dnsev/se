@@ -1,11 +1,7 @@
 #! /usr/bin/env python
 # http://dnsev.github.io/se/
 import os, re, sys, shutil, binascii, subprocess;
-<<<<<<< HEAD
 sub_edit_version = [ 1 , 2 ];
-=======
-sub_edit_version = [ 1 , 0 ];
->>>>>>> parent of 23f5237... 1.1
 
 
 
