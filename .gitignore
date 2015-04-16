@@ -221,3 +221,4 @@ mkvextract.exe
 *.lnk
 src/settings.txt
 /package.7z
+*.mkv

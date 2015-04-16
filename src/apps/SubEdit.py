@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # http://dnsev.github.io/se/
 import os, re, sys, shutil, binascii, subprocess;
-sub_edit_version = [ 1 , 2 ];
+sub_edit_version = [ 1 , 2 , 1 ];
 
 
 
@@ -679,7 +679,7 @@ def parse_settings_value(source, i, regex_allowed, asterisk_allowed, parsable_st
 
 
 	# Key error
-	if (len(key) == 0):
+	if (len(key) == 0 and find_arrow):
 		ret["pos"] = i;
 		ret["reason"] = "error";
 		ret["error"] = "Invalid value";
